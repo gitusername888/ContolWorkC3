@@ -5,6 +5,8 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+using System.Runtime.Serialization.Formatters;
+
 string[] InputArray ()
 {
     System.Console.WriteLine("Введите количество значений массива:");
@@ -31,6 +33,33 @@ void PrintArray(string[] arrayStart)
 
 }
 
+string [] CheckArray (string [] arrayStart)
+{
+int count =0;
+for (int i = 0; i<arrayStart.GetLength(0); i++)
+{
+    if (arrayStart[i].Length>=3)count++;
+}
+string [] arrayres = new string [count];
+int countres = 0;
+for (int j = 0; j<arrayStart.GetLength(0); j++)
+{
+    if (arrayStart[j].Length>=3)
+    {
+        arrayres [countres]= arrayStart[j];
+        countres++;
+    }
+}
+
+// string [] arrayResult = n
+
+return arrayres;
+}
+
+
+
 string[] arrayStart =  InputArray ();
 PrintArray(arrayStart);
 
+string[] arrayres =  CheckArray (arrayStart);
+PrintArray(arrayres);
