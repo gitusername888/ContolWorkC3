@@ -24,13 +24,16 @@ string[] InputArray ()
 
 void PrintArray(string[] arrayStart)
 {
+ int i = 0;
  
-    for (int i = 0; i < arrayStart.GetLength(0); i++)
+ 
+ System.Console.Write($"[{arrayStart[i]}");
+    for (i = 1; i < arrayStart.GetLength(0); i++)
     {
-        System.Console.Write($"{arrayStart[i]}  ");
+        System.Console.Write($", {arrayStart[i]}");
         
     }
-
+System.Console.Write("]");
 }
 
 string [] CheckArray (string [] arrayStart)
@@ -38,13 +41,13 @@ string [] CheckArray (string [] arrayStart)
 int count =0;
 for (int i = 0; i<arrayStart.GetLength(0); i++)
 {
-    if (arrayStart[i].Length>=3)count++;
+    if (arrayStart[i].Length<=3)count++;
 }
 string [] arrayres = new string [count];
 int countres = 0;
 for (int j = 0; j<arrayStart.GetLength(0); j++)
 {
-    if (arrayStart[j].Length>=3)
+    if (arrayStart[j].Length<=3)
     {
         arrayres [countres]= arrayStart[j];
         countres++;
@@ -60,6 +63,6 @@ return arrayres;
 
 string[] arrayStart =  InputArray ();
 PrintArray(arrayStart);
-
+System.Console.Write("->");
 string[] arrayres =  CheckArray (arrayStart);
 PrintArray(arrayres);
