@@ -36,13 +36,18 @@ void PrintArray(string[] arrayStart)
 System.Console.Write("]");
 }
 
-string [] CheckArray (string [] arrayStart)
+int CheckArray (string [] arrayStart)
 {
 int count =0;
 for (int i = 0; i<arrayStart.GetLength(0); i++)
 {
     if (arrayStart[i].Length<=3)count++;
 }
+return count;
+}
+
+string [] FormArray (string [] arrayStart, int count)
+{
 string [] arrayres = new string [count];
 int countres = 0;
 for (int j = 0; j<arrayStart.GetLength(0); j++)
@@ -64,5 +69,13 @@ return arrayres;
 string[] arrayStart =  InputArray ();
 PrintArray(arrayStart);
 System.Console.Write("->");
-string[] arrayres =  CheckArray (arrayStart);
-PrintArray(arrayres);
+int count =  CheckArray (arrayStart);
+if (count >0)
+{
+    string[] arrayres = FormArray(arrayStart, count);
+    PrintArray(arrayres);
+}
+else
+{
+    System.Console.Write("[]");
+}
