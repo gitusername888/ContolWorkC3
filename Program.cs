@@ -27,10 +27,10 @@ void PrintArray(string[] arrayStart)
  int i = 0;
  
  
- System.Console.Write($"[{arrayStart[i]}");
+ System.Console.Write($"[\"{arrayStart[i]}\"");
     for (i = 1; i < arrayStart.GetLength(0); i++)
     {
-        System.Console.Write($", {arrayStart[i]}");
+        System.Console.Write($", \"{arrayStart[i]}\"");
         
     }
 System.Console.Write("]");
